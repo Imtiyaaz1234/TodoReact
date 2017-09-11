@@ -1,31 +1,31 @@
+// None of these are gonna go anywhere if you don't dispatch them
+import { store } from '../reducers';
 import {CREATE_TODO,DELETE_TODO,TOGGLE_TODO } from '../constants';
 
+// addTodo? Or createTodo? Pick one
 export const addTodo = (todoListItem) => {
-	const action = {
+	store.dispatch({
 		type:CREATE_TODO,	
 		payload:{
 			createNewTodo:todoListItem.createNewTodo,
 		}
-	}
-	return action;
+	});
 }
 
 export const deleteTodo = (todoId) => {
-	const action = {
+	store.dispatch({
 		type:DELETE_TODO,
 		payload:{
 			todoId
 		}
-	}
-	return action;
+	});
 }
 
 export const toggleTodo = (todoId) =>{
-	const action ={
+	store.dispatch({
 		type:TOGGLE_TODO,
 		payload:{
-			todoId,
+			todoId//, Need to remove extra comma here
 		}
-	}
-	return action;
+	});
 } 
